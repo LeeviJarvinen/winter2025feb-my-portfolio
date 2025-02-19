@@ -1,0 +1,345 @@
+<!doctype html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"><title>Leevi Järvinen Portfolio</title><style>html {
+    scroll-behavior: smooth;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    background-color: #111111;
+    perspective: 1000px;
+    color: #ffffff;
+    font-family: 'Courier New', monospace;
+    background-color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow-y: visible;
+    overflow-x: hidden;
+}
+
+.grid-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    perspective: 1000px;
+}
+
+.grid-plane {
+    position: absolute;
+    top: 0;
+    left: -50%; /* Offset so both sides are covered */
+    width: 200%; /* Cover extra just to fit the whole view */
+    height: 100%;
+    background:
+        linear-gradient(to right, rgba(255, 255, 255, 0.3) 2px, transparent 2px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.3) 2px, transparent 2px);
+    background-size: 80px 80px; /* Grid size */
+    transform: rotateX(90deg) translateZ(-500px); /* Angle the grid and push it back */
+    animation: 
+        initialAnimation 2.5s ease-in-out forwards,
+        moveGrid 5s linear infinite 2.5s;
+    mask-image: linear-gradient(to top, rgba(0, 0, 0, 1) 10%, rgba(0, 0, 0, 0) 100%);
+}
+
+@keyframes initialAnimation { /* Initial landing animation */
+    0% {
+        transform: rotateX(0deg) translateZ(-100px) translateY(0);
+    }
+    100% {
+        transform: rotateX(50deg) translateZ(-100px) translateY(0);
+    }
+    }
+
+@keyframes moveGrid { /* Move the grid */
+    0% {
+        transform: rotateX(50deg) translateZ(-100px) translateY(0);
+    }
+    100% {
+        transform: rotateX(50deg) translateZ(-100px) translateY(-80px);
+    }
+}
+
+/* Profile terminal */
+
+  .container {
+    width: 90%;
+    max-width: 800px;
+    padding: 20px;
+    opacity: 90%;
+  }
+
+  .terminal {
+    background-color: #252526;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  #code-typing {
+    font-family: 'Courier New', monospace;
+    font-size: 16px;
+    color: #f0f0f0;
+    margin: 0;
+    line-height: 1.6;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    opacity: 0.5;
+    transition: opacity 1.5s ease-in-out, filter 3s ease-in-out;
+  }
+
+  .typing-cursor {
+    display: inline-block;
+    width: 5px;
+    height: 20px;
+    background-color: #f0f0f070;
+    animation: blink 0.7s infinite ;
+    position: relative;
+    top: 1px;
+    transition: opacity 1.5s ease-in-out, filter 3s ease-in-out;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+
+  /* Syntax Highlighting */
+  .html-tag { color: #569cd6; }
+  .html-attribute { color: #9cdcfe; }
+  .html-text { color: #ce9178; }
+  .html-equals { color: #d4d4d4; }
+  .html-quote { color: #d7ba7d; }
+
+  #live-preview {
+    opacity: 1;
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    right: 30px;
+    bottom: 30px;
+  }
+
+  li {
+    list-style-type: none;
+    padding-left: 1.5rem;
+  }
+
+  #live-preview h1 {
+    color: #4ec9b0;
+    margin-top: 0;
+    font-size: 2.2rem;
+    margin-bottom: 16px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  #live-preview p {
+    line-height: 1.7;
+    font-size: 1rem;
+    margin-bottom: 14px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  #live-preview .highlight {
+    color: #4ec9b0;
+    font-weight: bold;
+  }
+
+  #live-preview ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+  }
+
+  #live-preview li {
+    padding-top: 16px;
+    line-height: 1.2;
+  }
+
+  /* Glow Effect */
+  .terminal::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(78, 201, 176, 0.1), transparent 70%);
+    animation: glow 8s infinite;
+  }
+.nav-container {
+    max-width: 800px;
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.nav-content {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.list-element {
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+
+/* Style the links */
+.list-element a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.list-element a:hover {
+    color: #4ec9b0;
+}
+
+/* Title */
+
+.title {
+    font-size: 4rem;
+    margin-bottom: 1.5rem;
+}
+
+.title-under {
+    color: #4ec9b0;
+    font-size:x-large;
+}
+
+/* Skills */
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.skills-item {
+    background-color: #252526;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.skills-item h3 {
+    color: #4ec9b0;
+    margin-bottom: 10px;
+    margin-top: 0;
+    font-size: 1.5rem;
+}
+
+.skills-item p {
+    color: #f0f0f0;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background-color: #252526;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+}
+
+.project-card h3 {
+    color: #4ec9b0;
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    margin-top: 0;
+}
+
+.project-card p {
+    color: #f0f0f0;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.project-link {
+    display: inline-block;
+    color: #4ec9b0;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.project-link:hover {
+    color: #ffffff;
+}
+
+.footer {
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2rem;
+    font-size: 18px;
+}
+
+.footer ul{
+    display: flex;
+    padding: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+}
+
+.footer li{
+    padding: 0;
+    
+}
+
+.fa-brands {
+    color: #e0e0e0;
+}
+
+.fa-brands:hover{
+    color: #ffffff;
+    scale: 1.2;
+    transition: 100ms;
+}
+
+@keyframes glow {
+    0% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.4; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.6; }
+    100% { transform: translate(-50%, -50%) scale(0.8); opacity: 0.4; }
+  }</style><script defer="defer" src="main.js"></script></head><body><div class="nav-container"><nav class="nav"><ul class="nav-content"><li class="list-element"><a href="#home">Home</a></li><li class="list-element"><a href="#projects">Projects</a></li><li class="list-element"><a href="#contact">Contact</a></li></ul></nav></div><div id="home" class="container"><h1 class="title">Leevi Järvinen</h1><span class="title-under">Full Stack Developer <a href="https://github.com/leevijarvinen" target="_blank"><i class="fa-brands fa-github"></i></a> <a href="https://www.linkedin.com/in/leevi-jarvinen/" target="_blank"><i class="fa-brands fa-linkedin"></i></a></span></div><div class="container"><div class="terminal"><pre id="code-typing"></pre><span class="typing-cursor" id="cursor"></span><div id="live-preview"></div></div></div><div class="container"><h1>Skills</h1><div class="skills-grid"><div class="skills-item"><h3>Frontend Development</h3><p>HTML, CSS, JavaScript, React</p></div><div class="skills-item"><h3>Backend Development</h3><p>Node.js, Express, Python, Java, REST APIs</p></div><div class="skills-item"><h3>Database Management</h3><p>MySQL, MongoDB, Firebase</p></div></div></div><div id="projects" class="container"><h1>Projects</h1><div class="projects-grid"><div class="project-card"><h3>Realtime chat web application</h3><p><strong>Description:</strong> A realtime chat application that allows users to send messages instantly. The app is built using modern web technologies for optimal performance and scalability.</p><p><strong>Technologies used:</strong> <strong>React.js,</strong> <strong>Redux,</strong> <strong>Tailwind CSS,</strong> <strong>Node.js,</strong> <strong>Socket.io,</strong> <strong>Express.js,</strong> <strong>MongoDB</strong></p><a href="https://github.com/LeeviJarvinen/react-autumn2024-realtime-chat-app" target="_blank" class="project-link">View Project →</a></div><div class="project-card"><h3>This website</h3><p><strong>Description: </strong>A portfolio website. Built using good old HTML, CSS, JavaScript and bundled with Webpack.</p><p><strong>Technologies used:</strong> <strong>HTML,</strong> <strong>CSS,</strong> <strong>JavaScript,</strong> <strong>Webpack</strong></p><a href="https://github.com/LeeviJarvinen/winter2025feb-my-portfolio" target="_blank" class="project-link">View Project →</a></div><div class="project-card"><h3>Climate data analysis web application</h3><p><strong>Description: </strong>A climate change visualization tool, enabling users to customize graphs and create personalized views using temperature and emission data.</p><p><strong>Technologies used:</strong> <strong>React.js,</strong> <strong>Node.js,</strong> <strong>Express,</strong> <strong>MySQL</strong> <strong>Chart.js</strong> <strong>Bootstrap</strong> <strong>Axios</strong></p><a href="https://github.com/FTM-web-solutions/Web-ohjelmoinnin-sovellusprojekti" target="_blank" class="project-link">View Project →</a> <a href="https://ftmwebproject-371315.ew.r.appspot.com/" class="project-link">Visit →</a></div><div class="project-card"><h3>Employee management web app</h3><p><strong>Description: </strong>A web application that helps oranizations manage employee details, track working hours, and maintain attendance records. It features role-based access controls to ensure sensitive data and operations are only accessible to authorized users.</p><p><strong>Technologies used:</strong> <strong>React.js</strong> <strong>Node.js</strong> <strong>Express.js</strong> <strong>MongoDB</strong></p><a href="https://github.com/LeeviJarvinen/react-summer2024-clockin" target="_blank" class="project-link">View Project →</a></div><div class="project-card"><h3>Bankautomat</h3><p><strong>Description: </strong>an ATM where users can withdraw and deposit money, as well as view account transactions. Users have a debit account by default, but a credit account with a credit limit can also be added. Both account types function similarly.</p><p><strong>Technologies used:</strong> <strong>C++,</strong> <strong>Node.js,</strong> <strong>Qt Creator,</strong> <strong>Express.js,</strong> <strong>MySQL</strong></p><a href="https://github.com/LeeviJarvinen/Cpp-NodeJS-Bankautomat" target="_blank" class="project-link">View Project →</a></div></div></div><div><footer id="contact" class="footer"><p>&copy; 2025 Leevi Järvinen</p><ul><li class="list-element"><a href="https://github.com/leevijarvinen" target="_blank">Github</a></li><li class="list-element"><a href="https://www.linkedin.com/in/leevi-jarvinen/" target="_blank">LinkedIn</a></li></ul></footer></div><div class="grid-background-container"><div class="grid-container"><div class="grid-plane"></div></div></div><script src="script.js"></script></body></html>
