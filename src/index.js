@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '  <span class="html-tag">&lt;ul&gt;</span>\n',
     '    <span class="html-tag">&lt;li&gt;</span><span class="html-text">Developed a real-time chat application</span><span class="html-tag">&lt;/li&gt;</span>\n',
     '    <span class="html-tag">&lt;li&gt;</span><span class="html-text">Climate data visualization web app</span><span class="html-tag">&lt;/li&gt;</span>\n',
-    '    <span class="html-tag">&lt;li&gt;</span><span class="html-text">Built a employee management/time tracking system</span><span class="html-tag">&lt;/li&gt;</span>\n',
+    '    <span class="html-tag">&lt;li&gt;</span><span class="html-text">Built a employee management/time tracking web app</span><span class="html-tag">&lt;/li&gt;</span>\n',
     '  <span class="html-tag">&lt;/ul&gt;</span>\n',
     '  <span class="html-tag">&lt;p&gt;</span><span class="html-text">Currently open to new opportunities and collaborations!</span><span class="html-tag">&lt;/p&gt;</span>\n',
     '<span class="html-tag">&lt;/div&gt;</span>'
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '<ul>',
         '<li>Developed a real-time chat web app</li>',
         '<li>Created a Climate data visualization web app</li>',
-        '<li>Built a employee management/time tracking system web app</li>',
+        '<li>Built a employee management/time tracking web app</li>',
     '</ul>',
     '<p>Currently open to new opportunities and collaborations!</p>'
     ];
