@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', () => {
     '<p>Some of my key projects:</p>',
     '<ul>',
         '<li>Developed a real-time chat web app</li>',
-        '<li>Climate data visualization web app</li>',
+        '<li>Created a Climate data visualization web app</li>',
         '<li>Built a employee management/time tracking system web app</li>',
     '</ul>',
     '<p>Currently open to new opportunities and collaborations!</p>'
